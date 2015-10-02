@@ -49,12 +49,15 @@ with open(file_log, "wb") as logfile:
     result_fields= ["ID", "FirstName", "LastName", "Address", "Valid"]
     writer = csv.DictWriter(result_file, fieldnames=result_fields)
     writer.writeheader()
-    cursor.execute("SELECT ID, FirstName, LastName, Company FROM Contacts WHERE CommunicationState = 0")
+    cursor.execute("SELECT ID, FirstName, LastName, Company, EmailAddress FROM Contacts WHERE CommunicationState = 0")
     rows = cursor.fetchall()
     for row in rows:
       
       fn = ''.join(e for e in row[1] if e.isalnum())
-      ln = row[2].split()[0]
+      if row[2] == "":
+	ln = ""
+      else:
+	ln = row[2].split()[0]
       ln = ''.join(e for e in ln if e.isalnum())
       domain = ""
       company = row[3]
@@ -64,8 +67,10 @@ with open(file_log, "wb") as logfile:
 	c = company.split()[0]
 	c = ''.join(e for e in c if e.isalnum())
 	domain = "{}.com".format(c)
-	
+	      
       for address in create_address_candidates(fn,ln,domain):
+	if row[4] != "":
+	  address = row[4]
 	gmail_connection.send(address, subject, create_message(fn,ln, domain))
 	result_row={"ID":row[0], "FirstName":row[1],"LastName":row[2],"Address":address,"Valid":0}
 	writer.writerow(result_row)
