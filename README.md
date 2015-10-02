@@ -1,21 +1,23 @@
 # Semiautomated Person Acquisition Module
 
-A semiautomated system for messaging lots of people, using name/company data scraped from the web.
+A semiautomated system for messaging lots of people, using name/company data scraped from the web.  
 The Semiautomated Person Acquisition Module (SPAM) system helps you to automatically send emails and keep track of the results.
 
-Uses Python, SQlite. CSV files for automated in/output.
+Uses Python, SQlite, CSV files for batch in/output.
 
-We highly recommend getting an GUI program to be able to manually fix/update some stuff in the sqlite-database.
+We highly recommend setting up an GUI program to be able to manually fix/update stuff in the database.
 
 ##Setup
 
-Enter the credentials for your gmail in `credentials.py`. 
-Run `setup_db.py`
-Make sure you set up your Gmail account to allow the script to login. [This](http://stackoverflow.com/questions/10147455/trying-to-send-email-gmail-as-mail-provider-using-python/27515833#27515833) might help, also double check that you change the settings for the correct gmail account.
+Enter the credentials for your gmail in `credentials.py`.  
+Run `setup_db.py`  
+Make sure you set up your Gmail account to allow the script to login. 
+[This](http://stackoverflow.com/questions/10147455/trying-to-send-email-gmail-as-mail-provider-using-python/27515833#27515833) might help,
+also double check that you change the settings for the correct gmail account.
 
 ##Workflow
 
-* Crawl data from linkedin using some tool, we use [Salestools](https://salestools.io/). Be aware though that they seem to have issues with various OSes (we had to bring out an old Windows7 laptop.  
+* Crawl data from linkedin using some tool, we use [Salestools](https://salestools.io/). Be aware though that they seem to have issues with various OSes (we had to bring out an old Windows7 laptop).  
   Export to CSV.
 * Run import script, ours is `import_crawl_dump.py`
 * Run mail script: `send_mails.py`
@@ -28,6 +30,12 @@ Check for prospects by running `create_domain_report.py`.
 Add lists of emails by running `emails-import.py`.
 
 ##Internals
+
+Emails are generated as FirstName.LastName@company.com  
+Optionall, if a domain for the company has been specified, it will be FirstName.LastName@domain  
+All special characters are removed, last names/company names are reduced to only their first part (separated by whitespace).  
+
+
 Contact states:
 
 0: Unprocessed  
