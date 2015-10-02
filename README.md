@@ -49,11 +49,11 @@ Contact states:
 This repository is made available under the
 
     /*
-    * ---------------------------------------------------------------------------------------------
-    * "A PIZZA-WARE LICENSE" (Revision ??):
+    * --------------------------------------------------------------------------------
+    * "ANOTHER PIZZA-WARE LICENSE" (Revision 1):
     * As long as you retain this notice you can do whatever you want with this stuff.
-    * If we meet some day, and you think this stuff is worth it,
-    * you can buy me a pizza in return.
+    * If we meet some day, and you think this stuff is worth it, you can buy me a
+    * pizza in return.
     *    Quirin Fischer
-    * ---------------------------------------------------------------------------------------------
+    * --------------------------------------------------------------------------------
     */
