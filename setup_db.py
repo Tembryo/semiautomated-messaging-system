@@ -11,7 +11,7 @@ connection.execute("CREATE TABLE IF NOT EXISTS Contacts ("
 		   "Company TEXT,"
 		   "CommunicationState TEXT,"
 		   "EmailAddress TEXT,"
-		   "DateContacted TEXT,"
+		   "GroupInfo TEXT,"
 		   "Notes TEXT)")
 
 connection.execute("CREATE TABLE IF NOT EXISTS Domains ("

@@ -1,7 +1,7 @@
 import csv
 import sqlite3
 
-log_file = "integrate_log.txt"
+log_file = "log_integrate.txt"
 integration_file = "mails_sent.csv"
 db_file = "contacts-db.sqlite"
 connection = sqlite3.connect(db_file)

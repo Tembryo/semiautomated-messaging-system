@@ -1,7 +1,7 @@
 # Semiautomated Person Acquisition Module
 
 A semiautomated system for messaging lots of people, using name/company data scraped from the web.
-The Semiautomated Person Acquisition Module (SPAM) system helps you automatically sending emails and keep track of the results.
+The Semiautomated Person Acquisition Module (SPAM) system helps you to automatically send emails and keep track of the results.
 
 Uses Python, SQlite. CSV files for automated in/output.
 
@@ -11,6 +11,7 @@ We highly recommend getting an GUI program to be able to manually fix/update som
 
 Enter the credentials for your gmail in `credentials.py`. 
 Run `setup_db.py`
+Make sure you set up your Gmail account to allow the script to login. [This](http://stackoverflow.com/questions/10147455/trying-to-send-email-gmail-as-mail-provider-using-python/27515833#27515833) might help, also double check that you change the settings for the correct gmail account.
 
 ##Workflow
 

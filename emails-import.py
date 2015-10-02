@@ -1,8 +1,9 @@
 import csv
 import sqlite3
 
-file_in = "basf.csv"
-file_log = "basf_log.txt"
+file_in = "Akzonobel.csv"
+group = "akzonobel"
+file_log = "log_import_mails.txt"
 db_file = "contacts-db.sqlite"
 
 with open(file_log, 'wb') as logfile:
@@ -24,7 +25,7 @@ with open(file_log, 'wb') as logfile:
       comp = parts[1][0]
       cursor.execute("SELECT COUNT(ID) FROM Contacts WHERE FirstName = ? AND LastName = ?",(firstname, lastname))
       if cursor.fetchone()[0] == 0:
-	connection.execute("INSERT INTO Contacts (FirstName, LastName, Company, CommunicationState, EmailAddress, DateContacted) VALUES (?, ?, ?, 0, ?, date('now'))", (firstname, lastname, comp, mail))
+	connection.execute("INSERT INTO Contacts (FirstName, LastName, Company, CommunicationState, EmailAddress, GroupInfo) VALUES (?, ?, ?, 0, ?, ?)", (firstname, lastname, comp, mail, group))
 	logfile.write("Added {} {}\n".format(firstname, lastname))
       else:
 	logfile.write("Skipped existing {} {}\n".format(firstname, lastname))

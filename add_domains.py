@@ -2,7 +2,7 @@ import csv
 import sqlite3
 
 file_in = "domains.csv"
-file_log = "domain_import_log.txt"
+file_log = "log_domain_import.txt"
 db_file = "contacts-db.sqlite"
 
 with open(file_log, 'wb') as logfile:
