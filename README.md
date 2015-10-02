@@ -32,9 +32,8 @@ Add lists of emails by running `emails-import.py`.
 ##Internals
 
 Emails are generated as FirstName.LastName@company.com  
-Optionall, if a domain for the company has been specified, it will be FirstName.LastName@domain  
+Optionall, if a domain for the company has been specified, FirstName.LastName@domain is used.  
 All special characters are removed, last names/company names are reduced to only their first part (separated by whitespace).  
-
 
 Contact states:
 
@@ -53,7 +52,8 @@ This repository is made available under the
     * ---------------------------------------------------------------------------------------------
     * "A PIZZA-WARE LICENSE" (Revision ??):
     * As long as you retain this notice you can do whatever you want with this stuff.
-    * If we meet some day, and you think this stuff is worth it, you can buy me a pizza in return.
+    * If we meet some day, and you think this stuff is worth it,
+    * you can buy me a pizza in return.
     *    Quirin Fischer
     * ---------------------------------------------------------------------------------------------
     */
